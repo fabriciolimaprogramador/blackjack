@@ -21,27 +21,29 @@ public class JogoController {
 	private JogoService service;
 
 	@GetMapping("/embaralhar-cartas")
-	public RetornoResponse embaralharCartas() {
-		return new RetornoResponse(service.embaralhar());
+	public ResponseEntity<RetornoResponse> embaralharCartas() {
+		return ResponseEntity.ok(new RetornoResponse(service.embaralhar()));
 	}
 
 	@GetMapping("/puxar-uma-carta-do-baralho")
 	public ResponseEntity<?> puxarUmaCarta() {
 		Carta carta = service.puxarUmaCarta();
 		if(carta == null) {
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new RetornoResponse("Jogo finalizado"));
+			return ResponseEntity.status(HttpStatus.PARTIAL_CONTENT).body(new RetornoResponse("Jogo finalizado"));
 		}
+
 		return ResponseEntity.ok(carta);
+		
 	}
 
 	@GetMapping("/pontos-acumulados")
-	public RetornoResponse getPontosAcumulados() {
-		return new RetornoResponse("Pontos acumulados " + Integer.toString(service.getPontosAcumulados()));
+	public ResponseEntity<RetornoResponse> getPontosAcumulados() {
+		return ResponseEntity.ok(new RetornoResponse(Integer.toString(service.getPontosAcumulados())));
 	}
 
 	@GetMapping("/pontuacao")
-	public RetornoResponse getPontuacao() {
-		return new RetornoResponse(service.getPontuacao());
+	public ResponseEntity<RetornoResponse> getPontuacao() {
+		return ResponseEntity.ok(new RetornoResponse(service.getPontuacao()));
 	}
 
 }

@@ -28,20 +28,22 @@ public class JogoService {
 	}
 
 	public Carta puxarUmaCarta() {
+		if (cartas.size() == 0) {
+			embaralhar();
+		}
+
 		if (getPontosAcumulados() > 21) {
 			return null;
 		}
-		try {
-			indexCartaPuxada++;
-			cartasPuxadas.add(cartas.get(indexCartaPuxada));
-			Carta carta = cartas.get(indexCartaPuxada);
-			if (carta.getNumero().name().equals("A")) {
-				cartasPuxadasA.add(carta);
-			}
-			return carta;
-		} catch (ArrayIndexOutOfBoundsException e) {
-			return null;
+
+		indexCartaPuxada++;
+		cartasPuxadas.add(cartas.get(indexCartaPuxada));
+		Carta carta = cartas.get(indexCartaPuxada);
+		if (carta.getNumero().name().equals("A")) {
+			cartasPuxadasA.add(carta);
 		}
+		
+		return carta;
 	}
 
 	public int getPontosAcumulados() {
