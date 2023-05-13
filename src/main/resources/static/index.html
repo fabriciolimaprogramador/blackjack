@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Jack</title>
+
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body>
+    <header>
+        <h1>Black Jack</h1>
+    </header>
+
+    <div id="embaralhar-cartas">
+        <button type="button" onclick="embaralharCartas()">Embaralhar Cartas</button>
+    </div>
+
+    <div id="puxar-uma-carta">
+        <button type="button" onclick="puxarUmaCarta()">Puxar uma carta</button>
+    </div>
+
+    <p id="pontos-acumulados"></p>
+    <p id="pontuacao"></p>
+
+    <div id="cartas-puxadas">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Número
+                    </th>
+                    <th>
+                        Naipe
+                    </th>
+                    <th>
+                        Cor
+                    </th>
+                    <th>
+                        Imagem
+                    </th>
+                </tr>
+            </thead>
+            <tbody id="lista-cartas-puxadas">
+
+            </tbody>
+        </table>
+
+    </div>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
