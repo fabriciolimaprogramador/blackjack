@@ -9,3 +9,7 @@ http://localhost:8080/black-jack/embaralhar-cartas
 http://localhost:8080/black-jack/puxar-uma-carta-do-baralho
 http://localhost:8080/black-jack/pontos-acumulados
 http://localhost:8080/black-jack/pontuacao
+
+
+Documentação da API Swagger
+http://localhost:8080/swagger-ui/index.html
